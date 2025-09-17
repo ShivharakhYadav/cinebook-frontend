@@ -259,9 +259,9 @@ export function PaymentDialog({
               </div>
 
               <p className='text-muted-foreground'>
-                In a real implementation, this would integrate with Stripe's
-                payment form for secure card processing with support for Cards,
-                UPI, and other payment methods.
+                In a real implementation, this would integrate with
+                Stripe&apos;s payment form for secure card processing with
+                support for Cards, UPI, and other payment methods.
               </p>
 
               <div className='flex gap-3'>
