@@ -58,7 +58,7 @@ function MovieDetailPage() {
     const dates = shows.map(
       (show) => new Date(show.startTime).toISOString().split('T')[0]
     );
-    return [...new Set(dates)].sort();
+    return Array.from(new Set(dates)).sort();
   };
 
   const getShowsForDate = (date: string) => {
