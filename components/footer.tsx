@@ -6,12 +6,12 @@ import {
   Mail,
   Phone,
   MapPin,
-} from 'lucide-react'
+} from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className='bg-black text-gray-300 mt-10'>
-      <div className='max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10'>
+      <div className='mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10'>
         {/* Brand + About */}
         <div>
           <h2 className='text-2xl font-bold text-yellow-400'>CineBook</h2>
@@ -20,16 +20,28 @@ export default function Footer() {
             experience. Bringing you the latest blockbusters at your fingertips.
           </p>
           <div className='flex gap-4 mt-4'>
-            <a href='#' className='hover:text-yellow-400'>
+            <a
+              href='#'
+              className='hover:text-yellow-400'
+            >
               <Facebook size={20} />
             </a>
-            <a href='#' className='hover:text-yellow-400'>
+            <a
+              href='#'
+              className='hover:text-yellow-400'
+            >
               <Instagram size={20} />
             </a>
-            <a href='#' className='hover:text-yellow-400'>
+            <a
+              href='#'
+              className='hover:text-yellow-400'
+            >
               <Twitter size={20} />
             </a>
-            <a href='#' className='hover:text-yellow-400'>
+            <a
+              href='#'
+              className='hover:text-yellow-400'
+            >
               <Youtube size={20} />
             </a>
           </div>
@@ -40,22 +52,34 @@ export default function Footer() {
           <h3 className='text-lg font-semibold text-white mb-4'>Quick Links</h3>
           <ul className='space-y-2'>
             <li>
-              <a href='/movies' className='hover:text-yellow-400'>
+              <a
+                href='/movies'
+                className='hover:text-yellow-400'
+              >
                 Movies
               </a>
             </li>
             <li>
-              <a href='/about' className='hover:text-yellow-400'>
+              <a
+                href='/about'
+                className='hover:text-yellow-400'
+              >
                 About Us
               </a>
             </li>
             <li>
-              <a href='/contact' className='hover:text-yellow-400'>
+              <a
+                href='/contact'
+                className='hover:text-yellow-400'
+              >
                 Contact
               </a>
             </li>
             <li>
-              <a href='/faq' className='hover:text-yellow-400'>
+              <a
+                href='/faq'
+                className='hover:text-yellow-400'
+              >
                 FAQs
               </a>
             </li>
@@ -67,17 +91,26 @@ export default function Footer() {
           <h3 className='text-lg font-semibold text-white mb-4'>Support</h3>
           <ul className='space-y-2'>
             <li>
-              <a href='/terms' className='hover:text-yellow-400'>
+              <a
+                href='/terms'
+                className='hover:text-yellow-400'
+              >
                 Terms & Conditions
               </a>
             </li>
             <li>
-              <a href='/privacy' className='hover:text-yellow-400'>
+              <a
+                href='/privacy'
+                className='hover:text-yellow-400'
+              >
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href='/help' className='hover:text-yellow-400'>
+              <a
+                href='/help'
+                className='hover:text-yellow-400'
+              >
                 Help Center
               </a>
             </li>
@@ -104,5 +137,5 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} CineBook. All rights reserved.</p>
       </div>
     </footer>
-  )
+  );
 }
