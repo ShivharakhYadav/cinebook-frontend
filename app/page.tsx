@@ -6,7 +6,6 @@ import { SearchBar } from '@/components/search-bar';
 import { FilterPanel } from '@/components/filter-panel';
 import { api } from '@/lib/api';
 import type { Movie } from '@/types';
-
 export default function HomePage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
@@ -38,21 +37,22 @@ export default function HomePage() {
     let filtered = movies;
 
     if (searchQuery) {
-      filtered = filtered.filter(movie =>
-        movie.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        movie.description.toLowerCase().includes(searchQuery.toLowerCase())
+      filtered = filtered.filter(
+        (movie) =>
+          movie.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          movie.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
     if (selectedGenre) {
-      filtered = filtered.filter(movie =>
+      filtered = filtered.filter((movie) =>
         movie.genre.includes(selectedGenre)
       );
     }
 
     if (selectedRating) {
-      filtered = filtered.filter(movie =>
-        movie.rating >= parseFloat(selectedRating)
+      filtered = filtered.filter(
+        (movie) => movie.rating >= parseFloat(selectedRating)
       );
     }
 
@@ -61,34 +61,34 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center py-20">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-muted-foreground">Loading movies...</p>
+      <div className='container mx-auto px-4 py-8'>
+        <div className='text-center py-20'>
+          <div className='animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto'></div>
+          <p className='mt-4 text-muted-foreground'>Loading movies...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className='container mx-auto px-4 py-8'>
       {/* Hero Section */}
-      <div className="text-center py-12 mb-8">
+      {/* <div className="text-center py-12 mb-8">
         <h1 className="text-5xl font-bold mb-4 text-primary">
           CineBook
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
           Discover and book your favorite movies with the best cinema experience
         </p>
-      </div>
+      </div> */}
 
       {/* Search and Filters */}
-      <div className="mb-8 space-y-6">
-        <SearchBar
+      <div className='mb-8 space-y-6'>
+        {/* <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
-          placeholder="Search for movies..."
-        />
+          placeholder='Search for movies...'
+        /> */}
         <FilterPanel
           selectedGenre={selectedGenre}
           selectedRating={selectedRating}
@@ -98,15 +98,18 @@ export default function HomePage() {
       </div>
 
       {/* Movies Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
         {filteredMovies.map((movie) => (
-          <MovieCard key={movie._id} movie={movie} />
+          <MovieCard
+            key={movie._id}
+            movie={movie}
+          />
         ))}
       </div>
 
       {filteredMovies.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-xl text-muted-foreground">
+        <div className='text-center py-20'>
+          <p className='text-xl text-muted-foreground'>
             No movies found matching your criteria
           </p>
         </div>

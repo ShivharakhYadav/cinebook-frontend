@@ -92,9 +92,9 @@ function MovieDetailPage() {
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
-      <div className='relative h-96 bg-gradient-to-r from-background to-secondary/20'>
+      <div className='relative h-auto md:h-96 bg-gradient-to-r from-background to-secondary/20'>
         <div
-          className='absolute inset-0 bg-cover bg-center opacity-20'
+          className='absolute inset-0 bg-cover bg-center opacity-20 h-full'
           style={{
             backgroundImage: `url(${
               movie.poster ||
@@ -102,48 +102,46 @@ function MovieDetailPage() {
             })`,
           }}
         />
-        <div className='relative container mx-auto px-4 py-16 flex items-center'>
-          <div className='flex flex-col md:flex-row gap-8 items-start'>
-            <div className='w-64 h-80 bg-card rounded-lg overflow-hidden shadow-2xl'>
-              <img
-                src={
-                  movie.poster ||
-                  'https://images.unsplash.com/photo-1489599763687-2d2def4d2ec5'
-                }
-                alt={movie.title}
-                className='w-full h-full object-cover'
-              />
-            </div>
-            <div className='flex-1 space-y-6'>
-              <div>
-                <h1 className='text-4xl md:text-5xl font-bold text-primary mb-2'>
-                  {movie.title}
-                </h1>
-                <div className='flex flex-wrap items-center gap-4 text-muted-foreground'>
-                  <div className='flex items-center gap-1'>
-                    <Star className='w-4 h-4 text-yellow-500 fill-current' />
-                    <span className='font-medium'>{movie.rating}/10</span>
-                  </div>
-                  <div className='flex items-center gap-1'>
-                    <Clock className='w-4 h-4' />
-                    <span>{movie.duration} min</span>
-                  </div>
-                  <Badge variant='secondary'>{movie.movieLanguage}</Badge>
+        <div className='relative container mx-auto px-4 py-16 flex flex-col md:flex-row items-center md:items-start gap-8'>
+          <div className='w-64 h-80 bg-card rounded-lg overflow-hidden shadow-2xl'>
+            <img
+              src={
+                movie.poster ||
+                'https://images.unsplash.com/photo-1489599763687-2d2def4d2ec5'
+              }
+              alt={movie.title}
+              className='w-full h-full object-cover'
+            />
+          </div>
+          <div className='flex-1 space-y-6'>
+            <div>
+              <h1 className='text-4xl md:text-5xl font-bold text-primary mb-2'>
+                {movie.title}
+              </h1>
+              <div className='flex flex-wrap items-center gap-4 text-muted-foreground'>
+                <div className='flex items-center gap-1'>
+                  <Star className='w-4 h-4 text-yellow-500 fill-current' />
+                  <span className='font-medium'>{movie.rating}/10</span>
                 </div>
+                <div className='flex items-center gap-1'>
+                  <Clock className='w-4 h-4' />
+                  <span>{movie.duration} min</span>
+                </div>
+                <Badge variant='secondary'>{movie.movieLanguage}</Badge>
               </div>
+            </div>
 
-              <div className='space-y-2'>
-                <p className='text-lg text-foreground'>{movie.description}</p>
-                <div className='flex flex-wrap gap-2'>
-                  {movie.genre.map((g) => (
-                    <Badge
-                      key={g}
-                      variant='outline'
-                    >
-                      {g}
-                    </Badge>
-                  ))}
-                </div>
+            <div className='space-y-2'>
+              <p className='text-lg text-foreground'>{movie.description}</p>
+              <div className='flex flex-wrap gap-2'>
+                {movie.genre.map((g) => (
+                  <Badge
+                    key={g}
+                    variant='outline'
+                  >
+                    {g}
+                  </Badge>
+                ))}
               </div>
             </div>
           </div>
